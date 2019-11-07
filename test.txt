@@ -3,12 +3,11 @@ what your name
 public static void main(){
 if(you is )
 {
-print
+System.out.println("");
 }
 
 fadsa
 
 this is today add
 but you not to do everything ok?
-
 hallo?

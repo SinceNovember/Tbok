@@ -28,6 +28,7 @@ public class BlogServiceImpl extends AbstractService<Blog> implements BlogServic
 
     @Override
     public List<Blog> findTop5Views() {
+        System.out.println("234");
         return null;
     }
 

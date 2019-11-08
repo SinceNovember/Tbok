@@ -16,5 +16,6 @@ public class BlogTest {
     @Test
     public void test() {
         System.out.println(blogService.findById(1));
+        System.out.println("123");
     }
 }

@@ -1,7 +1,7 @@
 package com.epoint.dao;
 
 import com.epoint.core.MyMapper;
-import com.epoint.entity.Blog;
+import com.epoint.model.entity.Blog;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

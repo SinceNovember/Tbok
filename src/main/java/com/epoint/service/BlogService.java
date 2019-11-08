@@ -1,7 +1,7 @@
 package com.epoint.service;
 
 import com.epoint.core.Service;
-import com.epoint.entity.Blog;
+import com.epoint.model.entity.Blog;
 
 import java.util.List;
 import java.util.Map;

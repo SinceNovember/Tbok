@@ -1,4 +1,4 @@
-package com.epoint.entity;
+package com.epoint.model.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +10,6 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
-@ToString
 @EqualsAndHashCode
 public class BaseEntity {
 

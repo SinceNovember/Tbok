@@ -19,7 +19,7 @@ logging:
   config: logback.xml
 
 mybatis:
-  type-aliases-package: cn.nxcoder.blog.entity
+  type-aliases-package: cn.epoint.model.entity
   mapper-locations:
     - classpath:mapper/*.xml
 

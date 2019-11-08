@@ -2,7 +2,7 @@ package com.epoint.service.impl;
 
 import com.epoint.core.AbstractService;
 import com.epoint.dao.BlogMapper;
-import com.epoint.entity.Blog;
+import com.epoint.model.entity.Blog;
 import com.epoint.service.BlogService;
 import org.springframework.stereotype.Service;
 

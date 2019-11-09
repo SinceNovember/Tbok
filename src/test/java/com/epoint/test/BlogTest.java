@@ -2,6 +2,7 @@ package com.epoint.test;
 
 import com.epoint.model.dto.BlogDTO;
 import com.epoint.model.entity.Blog;
+import com.epoint.model.entity.Category;
 import com.epoint.service.BlogService;
 import com.epoint.service.CategoryService;
 import org.junit.Test;
@@ -30,6 +31,13 @@ public class BlogTest {
 //        blogDTO.covertFrom(blog);
 //        System.out.println(blogDTO);
 //        System.out.println(blogService.findById(1));
-        System.out.println(categoryService.findByParentId(4).get(0).getCreateTime());
+        Category category = new Category();
+        category.setId(9);
+        category.setDescription("3333");
+        category.setParentId(3);
+        category.prePersist();
+        System.out.println(categoryService.save(category));
+//        categoryService.findByParentId(4);
     }
+
 }

@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -23,4 +24,15 @@ public class BaseEntity {
 
     @Column(name= "deleted", columnDefinition = "TINYINT default 0")
     private Boolean deleted = false;
+
+    public void prePersist() {
+        Date now = new Date();
+        if (createTime == null) {
+            createTime = now;
+        }
+
+        if (updateTime == null) {
+            updateTime = now;
+        }
+    }
 }

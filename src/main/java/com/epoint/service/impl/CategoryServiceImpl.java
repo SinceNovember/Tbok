@@ -11,14 +11,16 @@ import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl  extends AbstractService<Category> implements CategoryService{
     @Resource
     private CategoryMapper categoryMapper;
     @Override
-    public List<Category> findByParentId(int id) {
+    public Optional<Category> findByParentId(int id) {
         return categoryMapper.findByParentId(id);
     }
 

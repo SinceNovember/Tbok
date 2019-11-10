@@ -6,9 +6,10 @@ import com.epoint.model.entity.Category;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface CategoryService extends Service<Category> {
 
-    List<Category> findByParentId(int id);
+    Optional<Category> findByParentId(int id);
 
 }

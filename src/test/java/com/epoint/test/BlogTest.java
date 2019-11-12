@@ -1,8 +1,10 @@
 package com.epoint.test;
 
+import com.epoint.factory.StringToEnumConverterFactory;
 import com.epoint.model.dto.BlogDTO;
 import com.epoint.model.entity.Blog;
 import com.epoint.model.entity.Category;
+import com.epoint.model.enums.LogType;
 import com.epoint.service.BlogService;
 import com.epoint.service.CategoryService;
 import org.apache.ibatis.javassist.NotFoundException;
@@ -12,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.test.context.junit4.SpringRunner;
+import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
 import javax.swing.text.html.Option;
@@ -27,14 +30,18 @@ public class BlogTest {
 
     @Test
     public void test() {
-        Blog blog = new Blog();
-        blog.setId(1);
-        blog.setTitle("测试");
-        blog.setContent("测试2");
-        blog.setDescription("addd");
-        Optional<String> name = Optional.of("dolores");
-        Optional empty = Optional.ofNullable(null);
-        categoryService.findByParentId(4).orElseThrow(() -> new IllegalArgumentException("查询不到该分类的信息"));
+        LogType s = LogType.valueOf("BLOG_INITIALIZED");
+        StringToEnumConverterFactory factory = new StringToEnumConverterFactory();
+        Object logType = factory.getConverter(LogType.class).convert("BLOG_INITIALIZED");
+        System.out.println(LogType.BLOG_INITIALIZED);
+//        Blog blog = new Blog();
+//        blog.setId(1);
+//        blog.setTitle("测试");
+//        blog.setContent("测试2");
+//        blog.setDescription("addd");
+//        Optional<String> name = Optional.of("dolores");
+//        Optional empty = Optional.ofNullable(null);
+//        categoryService.findByParentId(4).orElseThrow(() -> new IllegalArgumentException("查询不到该分类的信息"));
 //        Optional noEmpty = Optional.of(null);
 //        System.out.println(name.orElse("There is some value"));
 //        System.out.println(empty.orElse("There is no value present!"));

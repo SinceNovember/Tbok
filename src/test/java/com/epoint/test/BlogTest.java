@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.yaml.snakeyaml.error.Mark;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -95,7 +96,7 @@ public class BlogTest {
                 "这部电影可能一开始节奏有点慢有点怪。不过从一个时刻开始，这部电影就真的开始走向令人惊讶的地步了。情节猎奇，但是却一点也不狗血，相反很有内涵。我记得以前，曾听过一个我觉得很有感觉的说法。你可以抹去一个人的记忆，但是你却没有办法抹去对这个人的感觉。我觉得这句话用在这部电影里真的很合适。虽然是一部奇幻电影，但是带给我们的启迪却远超一部现实主义的电影。很多时候面对问题的时候我们很喜欢回避、逃避。但是很多时候直面问题反而能得到更好的效果。我们可以选择忘却一些东西，但是无法忘却曾经为此付出的时间和感情。\n" +
                 "\n" +
                 "也许你需要的不过是鼓起勇气说一声“对不起”，不过是一句“我错了”，不过是一句“我爱你”。但是选择了忘记，选择了逃避，你就选择了失去。好电影，值得一看。\n";
-        System.out.println(new MarkdownUtils().markdown2Html(table));
+        System.out.println(MarkdownUtils.renderHtml(table));
 //        String a = "[imCoding 爱编程](http://www.lirenmi.cn)";
 //        List<Menu> meus = menuService.getRootMenu();
 //        List<MenuDTO> menuDTOS = menuService.convertTo(meus);

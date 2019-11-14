@@ -23,8 +23,6 @@ public class StringToEnumConverterFactory implements ConverterFactory<String, Va
         }
         @Override
         public T convert(String source) {
-            System.out.println(T.valueToEnum(this.enumType,source));
-            System.out.println("123");
             return (T) T.valueToEnum(this.enumType,source);
         }
     }

@@ -2,6 +2,7 @@ package com.epoint.model.entity;
 
 import com.epoint.model.enums.LogType;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "logs")
+@NoArgsConstructor
 @ToString
 public class Log extends BaseEntity{
     @Id
@@ -43,4 +45,6 @@ public class Log extends BaseEntity{
     public Log(int id) {
         this.id = id;
     }
+
+
 }

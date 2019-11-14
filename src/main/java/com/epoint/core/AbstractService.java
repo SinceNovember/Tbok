@@ -29,8 +29,8 @@ public abstract  class AbstractService<T> implements Service<T>{
     }
 
     @Override
-    public Integer save(T model) {
-        return mapper.insertSelective(model);
+    public T save(T model) {
+        return mapper.insertSelective(model) == 1? model:null;
     }
 
     @Override

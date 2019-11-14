@@ -7,7 +7,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 public interface Service<T> {
-    Integer save(T model);
+    T save(T model);
 
     Integer save(List<T> models);
 

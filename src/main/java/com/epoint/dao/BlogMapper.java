@@ -1,12 +1,12 @@
 package com.epoint.dao;
 
 import com.epoint.core.MyMapper;
-import com.epoint.model.entity.Blog;
+import com.epoint.model.entity.Article;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface BlogMapper  extends MyMapper<Blog> {
+public interface BlogMapper  extends MyMapper<Article> {
     @Select("select * from blog where typeid = #{id}")
-    List<Blog> findByTypeId(int id);
+    List<Article> findByTypeId(int id);
 }

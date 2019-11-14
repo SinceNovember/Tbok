@@ -10,16 +10,16 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2019-11-12 18:46:37
+Date: 2019-11-14 18:17:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for blog
+-- Table structure for article
 -- ----------------------------
-DROP TABLE IF EXISTS `blog`;
-CREATE TABLE `blog` (
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
   `id` int(11) DEFAULT NULL,
   `title` varchar(1000) DEFAULT NULL,
   `content` text,
@@ -41,9 +41,9 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of blog
+-- Records of article
 -- ----------------------------
-INSERT INTO `blog` VALUES ('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '11', '12', '12', '123', '31', '2019-11-06 17:22:14', '2019-11-22 17:22:17', '1');
+INSERT INTO `article` VALUES ('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '11', '12', '12', '123', '31', '2019-11-06 17:22:14', '2019-11-22 17:22:17', '1');
 
 -- ----------------------------
 -- Table structure for category
@@ -91,3 +91,63 @@ CREATE TABLE `logs` (
 -- ----------------------------
 -- Records of logs
 -- ----------------------------
+INSERT INTO `logs` VALUES ('1', '2', '0', '4', '5', '2019-11-20 17:05:44', '2019-11-21 17:05:50', '1');
+INSERT INTO `logs` VALUES ('2', '3', '5', '啊阿斯顿', '1', '2019-11-28 10:33:06', '2019-11-22 10:33:09', '1');
+INSERT INTO `logs` VALUES ('3', null, '0', 'aaqqq', 'azzx', '2019-11-14 10:49:13', '2019-11-14 10:49:13', '0');
+INSERT INTO `logs` VALUES ('3', null, '0', 'aaqqq', 'azzx', '2019-11-14 10:50:03', '2019-11-14 10:50:03', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', '没有问题的', null, '2019-11-14 14:43:42', '2019-11-14 14:43:42', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', null, null, '2019-11-14 14:44:31', '2019-11-14 14:44:31', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', '没有问题的', null, '2019-11-14 14:57:54', '2019-11-14 14:57:54', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', '没有问题的', null, '2019-11-14 14:58:22', '2019-11-14 14:58:22', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', '没有问题的1', null, '2019-11-14 14:58:30', '2019-11-14 14:58:30', '0');
+INSERT INTO `logs` VALUES ('0', '777', '0', '没有问题的1', null, '2019-11-14 15:00:01', '2019-11-14 15:00:01', '0');
+INSERT INTO `logs` VALUES ('0', '11', '0', 'aaaa', null, '2019-11-14 15:00:51', '2019-11-14 15:00:51', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:04:15', '2019-11-14 15:04:15', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:05:03', '2019-11-14 15:05:03', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:19:35', '2019-11-14 15:19:35', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:26:35', '2019-11-14 15:26:35', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:27:47', '2019-11-14 15:27:47', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:29:12', '2019-11-14 15:29:12', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:29:19', '2019-11-14 15:29:19', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:30:30', '2019-11-14 15:30:30', '0');
+INSERT INTO `logs` VALUES ('0', '1123', '0', 'aaaabbbcc', null, '2019-11-14 15:31:46', '2019-11-14 15:31:46', '0');
+
+-- ----------------------------
+-- Table structure for menu
+-- ----------------------------
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(100) DEFAULT NULL,
+  `component` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `redirect` varchar(100) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `icon` varchar(100) DEFAULT NULL,
+  `pid` int(11) DEFAULT NULL,
+  `hidden` int(11) DEFAULT '0',
+  `affix` int(11) DEFAULT '0',
+  `always_show` int(11) DEFAULT '0',
+  `no_cache` int(11) DEFAULT '1',
+  `bread_crumb` int(11) DEFAULT '1',
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `deleted` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of menu
+-- ----------------------------
+INSERT INTO `menu` VALUES ('1', '/', 'Layout', 'Dashboard', 'dashboard', '', null, null, '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('2', '/dashboard', 'dashboard/admin/index', 'Dashboard', null, '控制台', 'dashboard', '1', '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('3', '/article', 'Layout', 'Article', 'list', '博客管理', 'article', null, '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('5', 'list', 'article/index', 'aa', null, '博客列表', 'list', '3', '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('6', '/article/select', 'article/select/index', 'Table', '', '添加博客', 'add', '3', '0', '0', '1', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('7', 'category', 'category/index', 'Tree', null, '分类管理', 'alter', '3', '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('14', 'delete', 'article/delete', 'Tree1', null, '删除博客', 'delete', '3', '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('44', 'selectArticle', 'article/select/selectArticle', 'AS', null, '查询文章', null, '6', '0', '1', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('45', 'selectComment', 'article/select/selectComment', 'pk', null, '查询评论', null, '6', '0', '1', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('46', '/test', 'Layout', 'Test', null, '测试', 'tree', null, '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('47', 'test1', 'article/select/selectComment', 'test1', null, '测试1', null, '46', '0', '0', '0', '1', '1', null, null, null);
+INSERT INTO `menu` VALUES ('48', 'test2', 'article/select/selectComment', 'test2', null, '测试2', null, '46', '0', '0', '0', '1', '1', null, null, null);

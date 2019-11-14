@@ -8,10 +8,10 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "blog")
+@Table(name = "article")
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class Blog extends BaseEntity{
+public class Article extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,26 +1,26 @@
 package com.epoint.service;
 
 import com.epoint.core.Service;
-import com.epoint.model.entity.Blog;
+import com.epoint.model.entity.Article;
 
 import java.util.List;
 import java.util.Map;
 
-public interface BlogService extends Service<Blog> {
+public interface BlogService extends Service<Article> {
 
-    List<Blog> findByTypeId(int id);
+    List<Article> findByTypeId(int id);
 
-    List<Blog> findAllByCreateTimeDesc();
+    List<Article> findAllByCreateTimeDesc();
 
-    List<Blog> findTop5Views();
+    List<Article> findTop5Views();
 
-    List<Blog> findAllByTypeIdAndCreateTimeDesc(int id);
+    List<Article> findAllByTypeIdAndCreateTimeDesc(int id);
 
-    List<Blog> findAllByTagIdAndCreateTimeDesc(int id);
+    List<Article> findAllByTagIdAndCreateTimeDesc(int id);
 
-    Map<String,List<Blog>> archiveBlogList();
+    Map<String,List<Article>> archiveBlogList();
 
     Integer blogCount();
 
-    List<Blog> findAllByUpdateTimeDesc();
+    List<Article> findAllByUpdateTimeDesc();
 }

@@ -6,6 +6,7 @@ import com.epoint.model.dto.LogDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Log;
 import com.epoint.model.enums.ArticleType;
+import com.epoint.model.vo.ArticleCondition;
 import org.springframework.lang.NonNull;
 
 import java.util.List;
@@ -18,6 +19,10 @@ public interface ArticleService extends Service<Article> {
 
     @NonNull
      List<ArticleDTO> convertTo(@NonNull List<Article> articles) ;
+
+    List<Article> findArticlesByCondtion(ArticleCondition condtion);
+
+    List<Integer> getGroupByType();
 
      List<Article> findAllByState(ArticleType type);
 

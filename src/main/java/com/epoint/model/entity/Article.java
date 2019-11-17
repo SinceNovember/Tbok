@@ -89,17 +89,17 @@ public class Article extends BaseEntity{
      * 所属类型id
      */
     @Column(name = "typeid")
-    private int typeid;
+    private int typeId;
 
     /**
      * 所属标签id
      */
-    private String tagid;
+    private String tagId;
 
     /**
      * 所属user
      */
     @Column(name = "userid")
-    private int userid;
+    private int userId;
 
 }

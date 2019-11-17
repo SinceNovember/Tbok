@@ -5,6 +5,7 @@ import com.epoint.dao.ArticleMapper;
 import com.epoint.model.dto.ArticleDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.enums.ArticleType;
+import com.epoint.model.vo.ArticleCondition;
 import com.epoint.service.ArticleService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -42,6 +43,16 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
        return articles.stream()
                .map(this::convertTo)
                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Article> findArticlesByCondtion(ArticleCondition condtion) {
+         return blogMapper.findArticlesByCondtion(condtion);
+    }
+
+    @Override
+    public List<Integer> getGroupByType() {
+        return blogMapper.getGroupByType();
     }
 
 

@@ -6,6 +6,7 @@ import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Log;
 import com.epoint.model.enums.ArticleType;
 import com.epoint.model.enums.LogType;
+import com.epoint.model.vo.ArticleCondition;
 import com.epoint.service.ArticleService;
 import com.epoint.service.CategoryService;
 import com.epoint.service.LogService;
@@ -32,8 +33,9 @@ public class BlogTest {
 
     @Test
     public void test() {
-        List<ArticleDTO> articles = articleService.convertTo(articleService.findAll());
-        System.out.println(articles);
+        System.out.println(articleService.getGroupByType());
+//        List<ArticleDTO> articles = articleService.convertTo(articleService.findAll());
+//        System.out.println(articles);
 //        Log log = new  Log();
 //        log.setId(1);
 //        log.setContent("asda");
@@ -42,7 +44,12 @@ public class BlogTest {
 //        System.out.println(logDTO);
 //        List<Log> logs = logService.findAll();
 //        System.out.println(logs);
-//        List<Article> articles = articleService.findAllByState(ArticleType.Draft);
+//        List<Article> articles1 = articleService.findAllByState(ArticleType.DUSTBIN);
+//        System.out.println(articles1);
+//        ArticleCondition condition = new ArticleCondition();
+//        condition.setType(ArticleType.ENTITY);
+//        condition.setKeyWord("事");
+//        List<Article> articles = articleService.findArticlesByCondtion(condition);
 //        System.out.println(articles);
 //        List<Log> logs = logService.findAllByPage(2, 2);
 //        System.out.println(logs);

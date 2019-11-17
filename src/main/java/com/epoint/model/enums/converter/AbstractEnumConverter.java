@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * @param <E>
  *     mybatis枚举转换器抽象类，用于mybatis在与数据库交互时，将java的枚举类型转为对应的int,查询时根据Int转换为枚举型
  */
-public  abstract class AbstractEnumConverter<E extends Enum<E> & ValueEnum> extends BaseTypeHandler<E> {
+public  abstract class  AbstractEnumConverter<E extends Enum<E> & ValueEnum> extends BaseTypeHandler<E> {
     private Class<E> type;
 
     private E [] enums;

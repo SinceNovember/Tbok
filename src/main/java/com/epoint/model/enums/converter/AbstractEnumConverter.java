@@ -36,7 +36,7 @@ public  abstract class AbstractEnumConverter<E extends Enum<E> & ValueEnum> exte
      */
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, E parameter, JdbcType jdbcType) throws SQLException {
-            preparedStatement.setInt(i, (Integer) parameter.getValue());
+        preparedStatement.setInt(i, (Integer) parameter.getValue());
     }
 
     @Override

@@ -14,4 +14,7 @@ public interface LogService extends Service<Log> {
     @NonNull
     public LogDTO convertTo(@NonNull Log log) ;
 
-}
+    public List<Log> findAllByPage(int pageNumber, int pageSize);
+
+
+    }

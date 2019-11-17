@@ -2,6 +2,7 @@ package com.epoint.model.dto;
 
 import com.epoint.model.dto.base.OutputConverter;
 import com.epoint.model.entity.Article;
+import com.epoint.model.enums.ArticleType;
 import lombok.Data;
 
 /**
@@ -15,4 +16,6 @@ public class ArticleDTO implements OutputConverter<ArticleDTO, Article> {
     private String title;
 
     private String content;
+
+    private ArticleType type;
 }

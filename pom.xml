@@ -69,11 +69,11 @@
             <scope>test</scope>
         </dependency>
         <!-- emoji表情过滤 -->
-        <dependency>
-            <groupId>com.vdurmont</groupId>
-            <artifactId>emoji-java</artifactId>
-            <version>4.0.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.vdurmont</groupId>-->
+<!--            <artifactId>emoji-java</artifactId>-->
+<!--            <version>4.0.0</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark-all -->
         <dependency>

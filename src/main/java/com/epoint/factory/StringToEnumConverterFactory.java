@@ -4,6 +4,9 @@ import com.epoint.model.enums.ValueEnum;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 
+/**
+ * 字符串转枚举类型工厂
+ */
 public class StringToEnumConverterFactory implements ConverterFactory<String, ValueEnum> {
 
     /*

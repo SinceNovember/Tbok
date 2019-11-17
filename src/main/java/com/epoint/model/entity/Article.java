@@ -1,5 +1,6 @@
 package com.epoint.model.entity;
 
+import com.epoint.model.enums.ArticleType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -37,10 +38,10 @@ public class Article extends BaseEntity{
     private String firstPicture;
 
     /**
-     * 博客标记
+     * 博客类型
      */
-    @Column(name = "flag")
-    private String flag;
+    @Column(name = "type")
+    private ArticleType type;
 
     /**
      * 访问次数

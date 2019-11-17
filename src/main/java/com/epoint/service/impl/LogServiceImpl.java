@@ -6,6 +6,7 @@ import com.epoint.model.dto.LogDTO;
 import com.epoint.model.entity.Log;
 import com.epoint.model.enums.LogType;
 import com.epoint.service.LogService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -27,5 +28,11 @@ public class LogServiceImpl extends AbstractService<Log> implements LogService {
     public LogDTO convertTo(Log log) {
         Assert.notNull(log,"Log must not be null");
         return new LogDTO().covertFrom(log);
+    }
+
+    public List<Log> findAllByPage(int pageNumber, int pageSize) {
+        PageHelper.startPage(pageNumber, pageSize);
+        List<Log> logs = findAll();
+        return logs;
     }
 }

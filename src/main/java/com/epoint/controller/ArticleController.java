@@ -5,7 +5,9 @@ import com.epoint.model.entity.Article;
 import com.epoint.model.enums.ArticleType;
 import com.epoint.model.vo.ArticleCondition;
 import com.epoint.service.ArticleService;
+import com.epoint.utils.MapResult;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,14 +23,10 @@ public class ArticleController {
     @Resource
     private ArticleService articleService;
     @GetMapping("/articles")
-    public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "pageNumber") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize, ArticleCondition condition) {
-        Map<String, Object> maps = new HashMap<>();
+    public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize, ArticleCondition condition) {
         PageHelper.startPage(pageNumber, pageSize);
-//        List<Article> articles = articleService.findArticlesByCondtion(condition);
-//        List<ArticleDTO> articleDTOS = articleService.convertTo(articles);
-        maps.put("articles", articleService.convertTo(articleService.findArticlesByCondtion(condition)));
-        maps.put("totalCount", articleService.convertTo(articleService.findArticlesByCondtion(condition)).size());
-        return maps;
+        PageInfo<Article> list = new PageInfo<>(articleService.findArticlesByCondtion(condition));
+        return MapResult.ArticleResult(articleService.convertTo(list.getList()),list.getTotal());
     }
 
     @GetMapping("/articleGroup")

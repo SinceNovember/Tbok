@@ -37,7 +37,7 @@ public interface ArticleMapper extends MyMapper<Article> {
     @ResultMap("BaseResultMap")
     List<Article> findArticlesByCondtion(ArticleCondition condtion);
 
-    @Select("     select IFNULL(count(*),0) from article UNION ALL select IFNULL(count(*),0)  from article where type = 1  " +
+    @Select(" select IFNULL(count(*),0) from article UNION ALL select IFNULL(count(*),0)  from article where type = 1  " +
             "UNION ALL select IFNULL(count(*),0)  from article where type = 0  UNION ALL select IFNULL(count(*),0)  from article where type = -1  ")
     List<Integer> getGroupByType();
 

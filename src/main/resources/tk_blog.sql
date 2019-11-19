@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : G
-Source Server Version : 50724
+Source Server         : localhost
+Source Server Version : 50719
 Source Host           : localhost:3306
 Source Database       : tk_blog
 
 Target Server Type    : MYSQL
-Target Server Version : 50724
+Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2019-11-14 18:17:43
+Date: 2019-11-19 20:45:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,6 +20,41 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
+  `id` int(11) DEFAULT NULL,
+  `title` varchar(1000) DEFAULT NULL,
+  `content` text,
+  `first_picture` varchar(200) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT NULL,
+  `appreciation` int(11) DEFAULT NULL,
+  `share_statement` int(11) DEFAULT NULL,
+  `commentabled` int(11) DEFAULT NULL,
+  `published` int(11) DEFAULT NULL,
+  `recommend` int(11) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `tag_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `deleted` tinyint(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of article
+-- ----------------------------
+INSERT INTO `article` VALUES ('1', '看我的', '3', '4', '0', '6', '7', '8', '9', '0', '11', '12', '12', '123', '31', '2019-11-06 17:22:14', '2019-11-22 17:22:17', '1');
+INSERT INTO `article` VALUES ('2', '3', '4', '5', '0', '1', '123', null, '123', '123', null, null, null, null, null, '2019-11-17 19:13:13', '2019-12-28 19:13:19', null);
+INSERT INTO `article` VALUES ('3', '没事的', '5', '6', '0', '23', '12', '313', '12', '312', null, null, null, null, null, '2019-11-21 19:13:16', '2019-11-26 19:13:25', null);
+INSERT INTO `article` VALUES (null, 'a阿达', '6', '7', '0', '23', '42', '32', '13', '12', null, null, '12', null, null, '2019-12-19 19:48:14', '2019-11-21 19:48:17', null);
+INSERT INTO `article` VALUES (null, 'ad', 'ad', 'qwe', '0', '11', '321', '12', '3', '123', null, null, null, null, null, '2019-11-29 20:16:32', '2019-11-30 20:16:34', null);
+INSERT INTO `article` VALUES (null, 'adaewq', 'qwe', 'qwe', '0', null, null, null, null, null, null, null, null, null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for blog
+-- ----------------------------
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
   `id` int(11) DEFAULT NULL,
   `title` varchar(1000) DEFAULT NULL,
   `content` text,
@@ -41,9 +76,9 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of article
+-- Records of blog
 -- ----------------------------
-INSERT INTO `article` VALUES ('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '11', '12', '12', '123', '31', '2019-11-06 17:22:14', '2019-11-22 17:22:17', '1');
+INSERT INTO `blog` VALUES ('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '11', '12', '12', '123', '31', '2019-11-06 17:22:14', '2019-11-22 17:22:17', '1');
 
 -- ----------------------------
 -- Table structure for category

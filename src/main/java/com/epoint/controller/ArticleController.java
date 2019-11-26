@@ -9,6 +9,7 @@ import com.epoint.utils.MapResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,9 @@ public class ArticleController {
 
     @Resource
     private ArticleService articleService;
+
     @GetMapping("/articles")
-    public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize, ArticleCondition condition) {
+    public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize,ArticleCondition condition) {
         PageHelper.startPage(pageNumber, pageSize);
         PageInfo<Article> list = new PageInfo<>(articleService.findArticlesByCondtion(condition));
         return MapResult.ArticleResult(articleService.convertTo(list.getList()),list.getTotal());

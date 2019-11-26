@@ -3,9 +3,9 @@ package com.epoint.model.vo;
 import com.epoint.model.enums.ArticleType;
 import lombok.Data;
 import lombok.ToString;
-import lombok.Value;
+import org.springframework.lang.Nullable;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 @ToString
@@ -17,9 +17,47 @@ public class ArticleCondition {
 
     private String recommend;
 
-    private Date startDate;
+    private String startDate;
 
-    private Date endDate;
+    private String endDate;
 
+    public ArticleType getType() {
+        return type;
+    }
 
+    public void setType(ArticleType type) {
+        this.type = type;
+    }
+
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
+    }
+
+    public String getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(String recommend) {
+        this.recommend = recommend;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 }

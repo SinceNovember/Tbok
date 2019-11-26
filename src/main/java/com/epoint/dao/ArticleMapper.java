@@ -23,15 +23,16 @@ public interface ArticleMapper extends MyMapper<Article> {
             "<if test ='type != @com.epoint.model.enums.ArticleType@ENTITY '>",
             " and type =#{type} ",
             "</if>",
+            "<if test='keyWord != null'>",
+            "  and title like concat('%',#{keyWord},'%') ",
+            "</if>",
             "<if test = 'recommend != null'>",
             " and recommend =#{recommend}",
             "</if>",
             "<if test='startDate !=null and startDate != \"\" and endDate != \"\" and endDate !=null'>",
             " and  DATE_FORMAT(create_time,'%Y-%m-%d') between #{startDate} and #{endDate}",
             "</if>",
-            "<if test='keyWord != null'>",
-            "  and title like concat('%',#{keyWord},'%') ",
-            "</if>",
+
             "</script>"
     })
     @ResultMap("BaseResultMap")

@@ -33,19 +33,6 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
 
 
     @Override
-    public ArticleDTO convertTo(Article article) {
-        Assert.notNull(article,"article is not null");
-        return new ArticleDTO().covertFrom(article);
-    }
-
-    @Override
-    public List<ArticleDTO> convertTo(List<Article> articles) {
-       return articles.stream()
-               .map(this::convertTo)
-               .collect(Collectors.toList());
-    }
-
-    @Override
     public List<Article> findArticlesByCondtion(ArticleCondition condtion) {
          return blogMapper.findArticlesByCondtion(condtion);
     }
@@ -56,4 +43,16 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
     }
 
 
+    @Override
+    public ArticleDTO convertTo(Article article) {
+        Assert.notNull(article,"article is not null");
+        return new ArticleDTO().covertFrom(article);
+    }
+
+    @Override
+    public List<ArticleDTO> convertTo(List<Article> articles) {
+        return articles.stream()
+                .map(this::convertTo)
+                .collect(Collectors.toList());
+    }
 }

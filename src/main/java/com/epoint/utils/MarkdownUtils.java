@@ -56,7 +56,7 @@ public class MarkdownUtils {
 
     private static final HtmlRenderer RENDERER = HtmlRenderer.builder(OPTIONS).build();
 
-    public static String renderHtml(String markdown) {
+    public static String markdown2Html(String markdown) {
         if (StringUtils.isBlank(markdown)) {
             return "";
         }
@@ -64,7 +64,7 @@ public class MarkdownUtils {
         return RENDERER.render(document);
     }
 
-    public static String renderMarkdown(String html) {
+    public static String html2Markdown(String html) {
         return FlexmarkHtmlParser.parse(html);
     }
 

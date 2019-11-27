@@ -26,4 +26,8 @@ public interface Service<T> {
     List<T> findAll();
 
     List<T> selectByExample(Example example);
+
+    int update(T model);
+
+
  }

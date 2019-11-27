@@ -6,6 +6,7 @@ import com.epoint.model.enums.ArticleType;
 import com.epoint.model.vo.ArticleCondition;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -41,5 +42,8 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select(" select IFNULL(count(*),0) from article UNION ALL select IFNULL(count(*),0)  from article where type = 1  " +
             "UNION ALL select IFNULL(count(*),0)  from article where type = 0  UNION ALL select IFNULL(count(*),0)  from article where type = -1  ")
     List<Integer> getGroupByType();
+
+
+
 
 }

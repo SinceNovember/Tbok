@@ -22,7 +22,7 @@ public class ArticleDTO implements OutputConverter<ArticleDTO, Article> {
 
     private ArticleType type;
 
-    private int recommend;
+    private boolean recommend;
 
     private int views;
 

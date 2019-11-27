@@ -77,7 +77,7 @@ public class Article extends BaseEntity{
      * 是否推荐
      */
     @Column(name = "recommend")
-    private Integer recommend;
+    private boolean recommend;
 
     /**
      * 描述

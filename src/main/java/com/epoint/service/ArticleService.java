@@ -14,16 +14,18 @@ import java.util.Map;
 
 public interface ArticleService extends Service<Article> {
 
-    @NonNull
-     ArticleDTO convertTo(@NonNull Article article) ;
 
-    @NonNull
-     List<ArticleDTO> convertTo(@NonNull List<Article> articles) ;
 
-    List<Article> findArticlesByCondtion(ArticleCondition condtion);
+     List<Article> findArticlesByCondtion(ArticleCondition condtion);
 
     List<Integer> getGroupByType();
 
      List<Article> findAllByState(ArticleType type);
+
+    @NonNull
+    ArticleDTO convertTo(@NonNull Article article) ;
+
+    @NonNull
+    List<ArticleDTO> convertTo(@NonNull List<Article> articles) ;
 
 }

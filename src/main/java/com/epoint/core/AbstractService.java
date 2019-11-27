@@ -1,5 +1,7 @@
 package com.epoint.core;
 
+import com.epoint.model.dto.ArticleDTO;
+import com.epoint.model.entity.Article;
 import org.apache.ibatis.exceptions.TooManyResultsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
@@ -84,6 +86,10 @@ public abstract  class AbstractService<T> implements Service<T>{
     @Override
     public List<T> selectByExample(Example example) {
         return mapper.selectByExample(example);
+    }
+
+    public int update(T model) {
+        return mapper.updateByPrimaryKey(model);
     }
 
 

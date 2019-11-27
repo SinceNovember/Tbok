@@ -24,6 +24,9 @@ public class ArticleController {
     @Resource
     private ArticleService articleService;
 
+    /*
+    根据条件获取文章列表
+     */
     @GetMapping("/articles")
     public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize,ArticleCondition condition) {
         PageHelper.startPage(pageNumber, pageSize);
@@ -31,6 +34,9 @@ public class ArticleController {
         return MapResult.ArticleResult(articleService.convertTo(list.getList()),list.getTotal());
     }
 
+    /*
+    显示文章的类型列表以及数量
+     */
     @GetMapping("/articleGroup")
     public List<Integer> getGroupByType() {
         return articleService.getGroupByType();

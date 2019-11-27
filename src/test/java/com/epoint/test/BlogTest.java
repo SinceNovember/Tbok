@@ -33,7 +33,11 @@ public class BlogTest {
 
     @Test
     public void test() {
-        System.out.println(articleService.getGroupByType());
+        Article article = new Article();
+        article.setId(3);
+        article.setRecommend(false);
+        articleService.update(article);
+//        System.out.println(articleService.getGroupByType());
 //        List<ArticleDTO> articles = articleService.convertTo(articleService.findAll());
 //        System.out.println(articles);
 //        Log log = new  Log();

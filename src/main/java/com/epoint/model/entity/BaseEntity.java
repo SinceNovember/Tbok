@@ -25,14 +25,4 @@ public class BaseEntity {
     @Column(name= "deleted", columnDefinition = "TINYINT default 0")
     private Boolean deleted = false;
 
-    public void prePersist() {
-        Date now = new Date();
-        if (createTime == null) {
-            createTime = now;
-        }
-
-        if (updateTime == null) {
-            updateTime = now;
-        }
-    }
 }

@@ -1,4 +1,4 @@
-package com.epoint.controller;
+package com.epoint.controller.api;
 
 import com.epoint.model.entity.Menu;
 import com.epoint.service.MenuService;

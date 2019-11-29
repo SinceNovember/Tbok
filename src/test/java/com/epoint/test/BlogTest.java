@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import tk.mybatis.mapper.entity.Condition;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -34,8 +35,8 @@ public class BlogTest {
     @Test
     public void test() {
         Article article = new Article();
-        article.setId(3);
-        article.setRecommend(false);
+        article.setId(1);
+        article.setCommentabled(false);
         articleService.update(article);
 //        System.out.println(articleService.getGroupByType());
 //        List<ArticleDTO> articles = articleService.convertTo(articleService.findAll());

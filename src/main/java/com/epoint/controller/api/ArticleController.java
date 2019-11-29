@@ -1,4 +1,4 @@
-package com.epoint.controller;
+package com.epoint.controller.api;
 
 import com.epoint.model.dto.ArticleDTO;
 import com.epoint.model.entity.Article;
@@ -8,10 +8,7 @@ import com.epoint.service.ArticleService;
 import com.epoint.utils.MapResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -19,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api/admin/articles")
 public class ArticleController {
 
     @Resource
@@ -27,7 +25,7 @@ public class ArticleController {
     /*
     根据条件获取文章列表
      */
-    @GetMapping("/articles")
+    @GetMapping
     public Map<String, Object> articles(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize,ArticleCondition condition) {
         PageHelper.startPage(pageNumber, pageSize);
         PageInfo<Article> list = new PageInfo<>(articleService.findArticlesByCondtion(condition));
@@ -37,8 +35,14 @@ public class ArticleController {
     /*
     显示文章的类型列表以及数量
      */
-    @GetMapping("/articleGroup")
+    @GetMapping("articleGroup")
     public List<Integer> getGroupByType() {
         return articleService.getGroupByType();
     }
+
+    @PutMapping
+    public void update(@RequestBody Article article) {
+        articleService.update(article);
+    }
+
 }

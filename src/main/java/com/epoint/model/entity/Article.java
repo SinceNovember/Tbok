@@ -65,19 +65,19 @@ public class Article extends BaseEntity{
      * 评论开启
      */
     @Column(name = "commentabled")
-    private Integer commentabled;
+    private Boolean commentabled;
 
     /**
      * 发布
      */
     @Column(name = "published")
-    private Integer published;
+    private Boolean published;
 
     /**
      * 是否推荐
      */
     @Column(name = "recommend")
-    private boolean recommend;
+    private Boolean recommend;
 
     /**
      * 描述
@@ -89,7 +89,7 @@ public class Article extends BaseEntity{
      * 所属类型id
      */
     @Column(name = "typeid")
-    private int typeId;
+    private Integer typeId;
 
     /**
      * 所属标签id
@@ -100,6 +100,6 @@ public class Article extends BaseEntity{
      * 所属user
      */
     @Column(name = "userid")
-    private int userId;
+    private Integer userId;
 
 }

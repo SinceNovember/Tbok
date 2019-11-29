@@ -22,9 +22,11 @@ public class ArticleDTO implements OutputConverter<ArticleDTO, Article> {
 
     private ArticleType type;
 
-    private boolean recommend;
+    private Boolean recommend;
 
     private int views;
+
+    private Boolean commentabled;
 
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;

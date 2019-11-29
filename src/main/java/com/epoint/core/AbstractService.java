@@ -89,8 +89,7 @@ public abstract  class AbstractService<T> implements Service<T>{
     }
 
     public int update(T model) {
-        return mapper.updateByPrimaryKey(model);
+        return mapper.updateByPrimaryKeySelective(model);
     }
-
 
 }

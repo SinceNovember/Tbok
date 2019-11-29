@@ -1,4 +1,4 @@
-package com.epoint.controller;
+package com.epoint.controller.api;
 
 import com.epoint.model.dto.LogDTO;
 import com.epoint.model.entity.Log;

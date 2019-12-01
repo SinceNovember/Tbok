@@ -19,7 +19,7 @@ public interface Service<T> {
 
     T findBy(String fieldName, Object value) throws TooManyResultsException;
 
-    List<T> findByIds(String ids);
+//    List<T> findByIds(String ids);
 
     List<T> findByCondition(Condition condition);
 

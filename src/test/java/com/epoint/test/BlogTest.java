@@ -1,15 +1,14 @@
 package com.epoint.test;
 
 import com.epoint.model.dto.ArticleDTO;
-import com.epoint.model.dto.LogDTO;
 import com.epoint.model.entity.Article;
-import com.epoint.model.entity.Log;
+import com.epoint.model.entity.Category;
 import com.epoint.model.enums.ArticleType;
 import com.epoint.model.enums.LogType;
+import com.epoint.model.params.ArticleParam;
 import com.epoint.model.vo.ArticleCondition;
 import com.epoint.service.ArticleService;
 import com.epoint.service.CategoryService;
-import com.epoint.service.LogService;
 import com.epoint.service.MenuService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,17 +26,27 @@ public class BlogTest {
     private ArticleService articleService;
     @Resource
     private CategoryService categoryService;
-    @Resource
-    private LogService logService;
+//    @Resource
+//    private LogService logService;
     @Resource
     private MenuService menuService;
 
     @Test
     public void test() {
-        Article article = new Article();
-        article.setId(1);
-        article.setCommentabled(false);
-        articleService.update(article);
+        Category category = new Category();
+        category.setId(0);
+        category.setName("myname");
+        category.setDescription("asd");
+        categoryService.saveCategory(category);
+//        System.out.println(categoryService.listRootType());
+//        Article article = new Article();
+//        article.setId(1);
+//        article.setType(ArticleType.DUSTBIN);
+//        articleService.update(article);
+//        Article article = new Article();
+//        article.setId(1);
+//        article.setCommentabled(false);
+//        articleService.update(article);
 //        System.out.println(articleService.getGroupByType());
 //        List<ArticleDTO> articles = articleService.convertTo(articleService.findAll());
 //        System.out.println(articles);
@@ -52,7 +61,7 @@ public class BlogTest {
 //        List<Article> articles1 = articleService.findAllByState(ArticleType.DUSTBIN);
 //        System.out.println(articles1);
 //        ArticleCondition condition = new ArticleCondition();
-//        condition.setType(ArticleType.ENTITY);
+//        condition.setType(ArticleType.ENTIRE);
 //        condition.setKeyWord("事");
 //        List<Article> articles = articleService.findArticlesByCondtion(condition);
 //        System.out.println(articles);

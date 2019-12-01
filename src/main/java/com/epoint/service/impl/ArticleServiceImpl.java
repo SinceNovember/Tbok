@@ -55,4 +55,5 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
                 .map(this::convertTo)
                 .collect(Collectors.toList());
     }
+
 }

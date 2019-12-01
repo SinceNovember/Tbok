@@ -32,7 +32,7 @@ public abstract  class AbstractService<T> implements Service<T>{
 
     @Override
     public T save(T model) {
-        return mapper.insertSelective(model) == 1? model:null;
+        return mapper.insert(model) == 1? model:null;
     }
 
     @Override
@@ -68,10 +68,10 @@ public abstract  class AbstractService<T> implements Service<T>{
         return null;
     }
 
-    @Override
-    public List<T> findByIds(String ids) {
-        return mapper.selectByIds(ids);
-    }
+//    @Override
+//    public List<T> findByIds(String ids) {
+//        return mapper.selectByIds(ids);
+//    }
 
     @Override
     public List<T> findByCondition(Condition condition) {

@@ -3,6 +3,7 @@ package com.epoint.controller.api;
 import com.epoint.model.dto.ArticleDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.enums.ArticleType;
+import com.epoint.model.params.ArticleParam;
 import com.epoint.model.vo.ArticleCondition;
 import com.epoint.service.ArticleService;
 import com.epoint.utils.MapResult;
@@ -41,8 +42,16 @@ public class ArticleController {
     }
 
     @PutMapping
-    public void update(@RequestBody Article article) {
+    public void update(@RequestBody ArticleParam articleParam) {
+
+        Article article = articleParam.convertTo();
         articleService.update(article);
+    }
+
+
+    @DeleteMapping
+    public void delete(@RequestParam("ids") String ids) {
+        articleService.deleteByIds(ids);
     }
 
 }

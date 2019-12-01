@@ -1,9 +1,7 @@
 package com.epoint.service.impl;
 
 import com.epoint.dao.MenuMapper;
-import com.epoint.model.dto.LogDTO;
 import com.epoint.model.dto.MenuDTO;
-import com.epoint.model.entity.Log;
 import com.epoint.model.entity.Menu;
 import com.epoint.service.MenuService;
 import org.springframework.stereotype.Service;

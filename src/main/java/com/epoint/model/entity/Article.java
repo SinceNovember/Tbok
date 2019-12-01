@@ -8,7 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Data
-@Entity
 @Table(name = "article")
 @ToString
 @EqualsAndHashCode(callSuper = true)

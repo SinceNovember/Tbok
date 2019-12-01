@@ -21,7 +21,7 @@ public interface ArticleMapper extends MyMapper<Article> {
     @Select({"<script>",
             "select * from article",
             "where 1 = 1",
-            "<if test ='type != @com.epoint.model.enums.ArticleType@ENTITY '>",
+            "<if test ='type != @com.epoint.model.enums.ArticleType@ENTIRE '>",
             " and type =#{type} ",
             "</if>",
             "<if test='keyWord != null'>",

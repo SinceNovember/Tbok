@@ -18,7 +18,7 @@ import java.util.*;
 @Component
 public class EntityAspectHandler {
 
-    @Pointcut("execution(* com.epoint.core.AbstractService.save(..))")
+    @Pointcut("execution(* com.epoint.service.*.save*(..))")
     public void pointCut() {
 
     }

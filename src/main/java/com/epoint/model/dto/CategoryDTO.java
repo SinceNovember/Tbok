@@ -2,6 +2,7 @@ package com.epoint.model.dto;
 
 import com.epoint.model.dto.base.OutputConverter;
 import com.epoint.model.entity.Category;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -16,5 +17,6 @@ public class CategoryDTO implements OutputConverter<CategoryDTO,Category> {
 
     private Integer parentId;
 
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 }

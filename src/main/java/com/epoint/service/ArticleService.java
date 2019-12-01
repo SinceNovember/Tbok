@@ -2,9 +2,7 @@ package com.epoint.service;
 
 import com.epoint.core.Service;
 import com.epoint.model.dto.ArticleDTO;
-import com.epoint.model.dto.LogDTO;
 import com.epoint.model.entity.Article;
-import com.epoint.model.entity.Log;
 import com.epoint.model.enums.ArticleType;
 import com.epoint.model.vo.ArticleCondition;
 import org.springframework.lang.NonNull;

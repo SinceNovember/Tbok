@@ -22,5 +22,7 @@ public class Category extends BaseEntity{
 
     private String description;
 
-    private int parentId;
+    private Integer weight;
+
+    private Integer parentId;
 }

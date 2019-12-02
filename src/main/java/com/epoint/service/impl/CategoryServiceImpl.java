@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,20 +20,26 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl  extends AbstractService<Category> implements CategoryService{
     @Resource
     private CategoryMapper categoryMapper;
-    @Override
-    public Optional<Category> findByParentId(int id) {
-        return categoryMapper.findByParentId(id);
-    }
+
 
     @Override
     public List<Category> listCategories() {
-        return categoryMapper.findCategoriesByCondition();
+        List<Category> list = new ArrayList<>();
+        //获取所有的根分类
+        List<Category> rootCategories = categoryMapper.findRootType();
+        for (Category category : rootCategories) {
+            list.add(category);
+            //添加所有的子分类
+            list.addAll( categoryMapper.findByParentId(category.getId()));
+        }
+        return list;
     }
 
     @Override
     public List<Category> listRootType() {
         return categoryMapper.findRootType();
     }
+
 
     @Override
     public Category saveCategory(Category category) {
@@ -41,6 +48,12 @@ public class CategoryServiceImpl  extends AbstractService<Category> implements C
         }
         return super.save(category);
     }
+
+    @Override
+    public void updateCategory(Category category) {
+        super.update(category);
+    }
+
 
     @Override
     public CategoryDTO convertTo(Category category) {

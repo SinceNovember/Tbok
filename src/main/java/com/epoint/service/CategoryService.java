@@ -12,13 +12,13 @@ import java.util.Optional;
 
 public interface CategoryService extends Service<Category> {
 
-    Optional<Category> findByParentId(int id);
-
     List<Category> listCategories();
 
     List<Category> listRootType();
 
     Category saveCategory(@NonNull Category category);
+
+    void updateCategory(@NonNull Category category);
 
     @NonNull
     CategoryDTO convertTo(@NonNull Category category) ;

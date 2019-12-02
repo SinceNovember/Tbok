@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
+@ToString
 @EqualsAndHashCode
 public class BaseEntity {
 

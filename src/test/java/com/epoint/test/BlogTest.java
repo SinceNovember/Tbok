@@ -34,10 +34,10 @@ public class BlogTest {
     @Test
     public void test() {
         Category category = new Category();
-        category.setId(0);
+        category.setId(1);
         category.setName("myname");
         category.setDescription("asd");
-        categoryService.saveCategory(category);
+        categoryService.update(category);
 //        System.out.println(categoryService.listRootType());
 //        Article article = new Article();
 //        article.setId(1);

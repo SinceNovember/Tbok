@@ -34,9 +34,20 @@ public class CategoryController {
         return categoryService.convertTo(categories);
     }
 
+    @GetMapping("get")
+    public CategoryDTO getBy(@RequestParam("id") Integer id) {
+        return categoryService.convertTo(categoryService.getById(id));
+    }
+
     @PostMapping
     public void addCategory(@RequestBody CategoryParam categoryParam) {
         Category category = categoryParam.convertTo();
         categoryService.saveCategory(category);
+    }
+
+    @PutMapping
+    public void updateCategory(@RequestBody CategoryParam categoryParam) {
+        Category category = categoryParam.convertTo();
+        categoryService.updateCategory(category);
     }
 }

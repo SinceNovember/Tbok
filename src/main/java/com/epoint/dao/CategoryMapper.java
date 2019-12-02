@@ -21,5 +21,9 @@ public interface CategoryMapper extends MyMapper<Category> {
     @Select("select * from category where parent_id = #{parentId}")
     @ResultMap("BaseResultMap")
     List<Category> findByParentId(int parentId);
+
+    @Select("select * from category where id = #{id}")
+    @ResultMap("BaseResultMap")
+    Optional<Category> getById(Integer id);
 }
 

@@ -40,6 +40,11 @@ public class CategoryServiceImpl  extends AbstractService<Category> implements C
         return categoryMapper.findRootType();
     }
 
+    @Override
+    public Category getById(Integer id) {
+        return categoryMapper.getById(id).orElse(null);
+    }
+
 
     @Override
     public Category saveCategory(Category category) {

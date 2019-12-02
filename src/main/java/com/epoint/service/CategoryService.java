@@ -7,6 +7,7 @@ import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Category;
 import org.springframework.lang.NonNull;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,8 @@ public interface CategoryService extends Service<Category> {
     List<Category> listCategories();
 
     List<Category> listRootType();
+
+    Category getById(Integer id);
 
     Category saveCategory(@NonNull Category category);
 

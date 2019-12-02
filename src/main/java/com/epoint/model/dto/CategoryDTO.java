@@ -15,6 +15,8 @@ public class CategoryDTO implements OutputConverter<CategoryDTO,Category> {
 
     private String description;
 
+    private Integer weight;
+
     private Integer parentId;
 
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")

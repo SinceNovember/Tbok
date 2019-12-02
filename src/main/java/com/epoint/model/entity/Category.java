@@ -26,6 +26,4 @@ public class Category extends BaseEntity{
 
     private Integer parentId;
 
-    private List<Category> childrens;
-
 }

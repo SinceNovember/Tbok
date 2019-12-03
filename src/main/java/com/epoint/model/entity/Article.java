@@ -87,8 +87,8 @@ public class Article extends BaseEntity{
     /**
      * 所属类型id
      */
-    @Column(name = "typeid")
-    private Integer typeId;
+    @Column(name = "category_id")
+    private Integer categoryId;
 
     /**
      * 所属标签id
@@ -98,7 +98,7 @@ public class Article extends BaseEntity{
     /**
      * 所属user
      */
-    @Column(name = "userid")
+    @Column(name = "user_id")
     private Integer userId;
 
 }

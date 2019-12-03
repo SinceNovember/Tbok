@@ -10,5 +10,12 @@
             <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
             <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
             <result column="deleted" jdbcType="INTEGER" property="deleted"/>
+
+        <association property="articleCount" column="id" select="com.epoint.dao.ArticleCategoryMapper.countByCategoryId"></association>
+
+    </resultMap>
+
+    <resultMap id="BaseResultWithArticleCountMap" type="com.epoint.model.dto.CategoryWithArticleCountDTO" extends="BaseResultMap">
+        <association property="articleCount" column="id" select="com.epoint.dao.ArticleCategoryMapper.countByCategoryId"></association>
     </resultMap>
 </mapper>

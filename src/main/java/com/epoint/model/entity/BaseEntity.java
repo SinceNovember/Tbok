@@ -15,9 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 public class BaseEntity {
 
-
     private Date createTime;
-
 
     private Date updateTime;
 

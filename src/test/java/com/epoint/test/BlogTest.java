@@ -1,6 +1,8 @@
 package com.epoint.test;
 
+import com.epoint.dao.ArticleCategoryMapper;
 import com.epoint.model.dto.ArticleDTO;
+import com.epoint.model.dto.CategoryWithArticleCountDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Category;
 import com.epoint.model.enums.ArticleType;
@@ -26,6 +28,8 @@ public class BlogTest {
     private ArticleService articleService;
     @Resource
     private CategoryService categoryService;
+    @Resource
+    private ArticleCategoryMapper articleCategoryMapper;
 //    @Resource
 //    private LogService logService;
     @Resource
@@ -33,11 +37,18 @@ public class BlogTest {
 
     @Test
     public void test() {
+//        System.out.println(articleCategoryMapper.countByParentId(3));
+//        List<Category> list= categoryService.listCategories();
+//        System.out.println(list);
+//        articleCategoryMapper.countByCategoryId(2);
         Category category = new Category();
-        category.setId(1);
+//        category.setId(1);
         category.setName("myname");
         category.setDescription("asd");
-        categoryService.update(category);
+        category.setWeight(1);
+        categoryService.saveCategory(category);
+//        List<Category> list = categoryService.listCategories();
+//        System.out.println(list);
 //        System.out.println(categoryService.listRootType());
 //        Article article = new Article();
 //        article.setId(1);

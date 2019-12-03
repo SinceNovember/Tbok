@@ -2,6 +2,8 @@ package com.epoint.utils;
 
 import com.epoint.model.dto.ArticleDTO;
 import com.epoint.model.dto.CategoryDTO;
+import com.epoint.model.dto.CategoryWithArticleCountDTO;
+import com.epoint.model.entity.Category;
 
 import java.util.HashMap;
 import java.util.List;

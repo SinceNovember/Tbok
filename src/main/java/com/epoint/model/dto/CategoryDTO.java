@@ -9,6 +9,7 @@ import java.util.Date;
 
 @Data
 public class CategoryDTO implements OutputConverter<CategoryDTO,Category> {
+
     private Integer id;
 
     private String name;
@@ -21,4 +22,7 @@ public class CategoryDTO implements OutputConverter<CategoryDTO,Category> {
 
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
+
+    private Long articleCount;
+
 }

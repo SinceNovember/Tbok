@@ -32,7 +32,7 @@ public abstract  class AbstractService<T> implements Service<T>{
 
     @Override
     public T save(T model) {
-        return mapper.insert(model) == 1? model:null;
+        return mapper.insertSelective(model) == 1? model:null;
     }
 
     @Override

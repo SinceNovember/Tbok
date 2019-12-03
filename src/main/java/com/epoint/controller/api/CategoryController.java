@@ -1,6 +1,7 @@
 package com.epoint.controller.api;
 
 import com.epoint.model.dto.CategoryDTO;
+import com.epoint.model.dto.CategoryWithArticleCountDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Category;
 import com.epoint.model.params.CategoryParam;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/admin/categories")
@@ -23,9 +25,10 @@ public class CategoryController {
 
     @GetMapping
     public Map<String, Object> categories(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize) {
-        PageHelper.startPage(pageNumber, pageSize);
-        PageInfo<Category> list = new PageInfo<>(categoryService.listCategories());
-        return MapResult.CategoryResult(categoryService.convertTo(list.getList()),list.getTotal());
+//        PageHelper.startPage(pageNumber, pageSize);
+        List<Category> categories = categoryService.listCategories();
+        List<Category> retCategories = categories.stream().skip(pageSize*(pageNumber-1)).limit(pageSize).collect(Collectors.toList());
+        return MapResult.CategoryResult(categoryService.convertTo(retCategories), (long) categories.size());
     }
 
     @GetMapping("type")
@@ -49,5 +52,10 @@ public class CategoryController {
     public void updateCategory(@RequestBody CategoryParam categoryParam) {
         Category category = categoryParam.convertTo();
         categoryService.updateCategory(category);
+    }
+
+    @DeleteMapping
+    public void deleteBy(@RequestParam("ids") String ids) {
+        categoryService.deleteByIds(ids);
     }
 }

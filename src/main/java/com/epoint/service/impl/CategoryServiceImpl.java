@@ -7,9 +7,11 @@ import com.epoint.model.dto.ArticleDTO;
 import com.epoint.model.dto.CategoryDTO;
 import com.epoint.model.dto.CategoryWithArticleCountDTO;
 import com.epoint.model.entity.Category;
+import com.epoint.model.vo.CategoryCondition;
 import com.epoint.service.CategoryService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -27,10 +29,10 @@ public class CategoryServiceImpl  extends AbstractService<Category> implements C
     private ArticleCategoryMapper articleCategoryMapper;
 
     @Override
-    public List<Category> listCategories() {
+    public List<Category> listCategories(CategoryCondition condition) {
         List<Category> list = new ArrayList<>();
         //获取所有的根分类
-        List<Category> rootCategories = categoryMapper.findRootType();
+        List<Category> rootCategories = categoryMapper.findRootType(condition);
 
         for (Category category : rootCategories) {
 
@@ -46,7 +48,7 @@ public class CategoryServiceImpl  extends AbstractService<Category> implements C
 
     @Override
     public List<Category> listRootType() {
-        return categoryMapper.findRootType();
+        return categoryMapper.findRootType(null);
     }
 
     @Override
@@ -67,6 +69,23 @@ public class CategoryServiceImpl  extends AbstractService<Category> implements C
     @Override
     public void updateCategory(Category category) {
         super.update(category);
+    }
+
+    @Override
+    public void deleteCategory(String ids) {
+        String[] idStr = ids.split(",");
+        for (String id : idStr) {
+            //如果是根分类
+            if (categoryMapper.findById(Integer.valueOf(id)).get().getParentId() == -1) {
+                //查找其子分类
+                List<Category> childrens = categoryMapper.findByParentId(Integer.valueOf(id));
+                if (!CollectionUtils.isEmpty(childrens)) {
+                    childrens.forEach(children -> categoryMapper.delete(children));
+                }
+            }
+        }
+        // 删除选中的分类
+        deleteByIds(ids);
     }
 
 

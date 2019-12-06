@@ -5,6 +5,7 @@ import com.epoint.model.dto.CategoryWithArticleCountDTO;
 import com.epoint.model.entity.Article;
 import com.epoint.model.entity.Category;
 import com.epoint.model.params.CategoryParam;
+import com.epoint.model.vo.CategoryCondition;
 import com.epoint.service.CategoryService;
 import com.epoint.utils.MapResult;
 import com.github.pagehelper.PageHelper;
@@ -24,9 +25,8 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public Map<String, Object> categories(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize) {
-//        PageHelper.startPage(pageNumber, pageSize);
-        List<Category> categories = categoryService.listCategories();
+    public Map<String, Object> categories(@RequestParam(defaultValue = "1",value = "currentPage") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize, CategoryCondition condition) {
+        List<Category> categories = categoryService.listCategories(condition);
         List<Category> retCategories = categories.stream().skip(pageSize*(pageNumber-1)).limit(pageSize).collect(Collectors.toList());
         return MapResult.CategoryResult(categoryService.convertTo(retCategories), (long) categories.size());
     }
@@ -56,6 +56,6 @@ public class CategoryController {
 
     @DeleteMapping
     public void deleteBy(@RequestParam("ids") String ids) {
-        categoryService.deleteByIds(ids);
+        categoryService.deleteCategory(ids);
     }
 }

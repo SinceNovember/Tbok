@@ -16,7 +16,7 @@ spring:
 
 logging:
   level:
-    cn.nxcoder.blog.dao: trace
+    com.epoint.dao: trace
   config: logback.xml
 
 mybatis:
